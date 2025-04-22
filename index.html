@@ -17,7 +17,7 @@
   <p>Redirecting you to WhatsApp...</p>
   <script>
     const params = new URLSearchParams(window.location.search);
-    const ref = params.get("ref") || "someone";
+    const ref = decodeURIComponent(params.get("ref") || "someone");
     const message = `Hi, I was referred by ${ref}. How do I get started?`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappURL = `https://wa.me/447878562909?text=${encodedMessage}`;
